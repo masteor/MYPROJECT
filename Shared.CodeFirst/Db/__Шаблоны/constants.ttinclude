@@ -1,0 +1,43 @@
+﻿<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+
+<# const string baseFolder = "\\Db"; #>
+<# const string subFolder = "Представления"; #> // Таблицы или Представления
+<# const string subNamespace = "Представления"; #> // Таблицы или Представления
+
+<# // Entities #>
+<# const string entityClassName = "VIEW_MEMBER_ORG"; #>
+<# const string tableName = entityClassName; #>
+<#
+    object[][] t = 
+    {
+        new object[] { "int", "id", "ID", "IsRequired" },
+        new object[] { "int", "id_member", "ID_MEMBER", "IsRequired" }, new object[] { "int", "id_profile", "ID_PROFILE", "IsRequired" }, new object[] { "int", "id_user", "ID_USER", "IsRequired" }, new object[] { "int", "id_org", "ID_ORG", "IsRequired" }, new object[] { "string", "org_fname", "ORG_FNAME", "IsRequired" },
+    };
+#>
+
+<# var entityFullPathName = $"{baseFolder}\\Entities\\{subFolder}\\{entityClassName}.cs"; #>
+
+<# // Configuration #>
+<# var configurationFullPathName = $"{baseFolder}\\Configuration\\{subFolder}\\{entityClassName}_Configuration.cs"; #>
+
+<# // Repositories #>
+<# var repositoryFullPathName = $"{baseFolder}\\Repositories\\{entityClassName}_Repository.cs"; #>
+
+<# // Services #>
+<# var servicesFullPathName = $"{baseFolder}\\Services\\<ВЫБРАТЬ НУЖНЫЙ ФАЙЛ>"; #>
+
+<#+
+    public struct MyStruct
+    {
+        private string _entityColumnName;
+        private string _tableColumnName;
+
+        public MyStruct(string entityColumnName, string tableColumnName)
+        {
+            _entityColumnName = entityColumnName;
+            _tableColumnName = tableColumnName;
+        }
+    }
+    // features to be included to other t4 files
+#>

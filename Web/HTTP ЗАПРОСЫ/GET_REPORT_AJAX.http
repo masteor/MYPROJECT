@@ -1,0 +1,53 @@
+﻿GET http://localhost:1689/ReportAjax/GetAcAccess?dateTime=11.05.2016
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+###
+
+GET http://localhost:1689/ReportAjax/GetAllResources?dateTime=11.05.2016
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+###
+
+GET http://localhost:1689/ReportAjax/RSD
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+###
+GET http://localhost:1689/ReportAjax/GetRsdFromPrd
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+###
+// Перечень ресурсов в АС (PRD)
+GET http://localhost:1689/ReportAjax/GetAllResourcesFromPrd
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+###
+
+GET http://localhost:1689/ReportAjax/GetTest
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+###

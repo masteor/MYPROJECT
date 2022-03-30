@@ -1,0 +1,165 @@
+<#@ template language="C#" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output encoding="utf-8" extension=".cs"#>
+<#const string ключевоеСловоДляНазваний = "Пользователя"; #>
+<#const string имяТестируемогоКласса = "Создать_Пользователя"; #>
+<#const string имяПеременнойЭкземпляраКласса = "создатьПользователя"; #>
+<#const string имяКлассаМодели = "ДанныеИзФормы_СозданияПользователя_модель"; #>
+using System;
+using System.Collections.Generic;
+using Autofac;
+using AutoFixture;
+using DBPSA.Shared.Db.Entities.Таблицы;
+using DBPSA.Shared.Db.Services;
+using DBPSA.Shared.Models;
+using DBPSA.Shared2.Tests.Tests.Core.Db;
+using DBPSA.Shared2.Tests.Tests.Core.Extensions;
+using NUnit.Framework;
+
+namespace DBPSA.Shared2.Tests.Tests.Core.Models.Создать__Пользователя__Тесты
+{
+    [TestFixture]
+    public partial class Создать__<#=ключевоеСловоДляНазваний#>__Тесты : Init
+    {
+        [Test]
+        public void Проверяем_конструктор_с_нулл_входными_данными()
+        {
+            ICommonService?[] сервисы = {
+                null,
+                new Common_Service(), 
+            };
+
+            EMPLOYEE?[] пользователи =
+            {
+                null,
+                new EMPLOYEE(), 
+                new EMPLOYEE
+                {
+                    id = -1
+                },
+                new EMPLOYEE
+                {
+                    id = 0
+                },
+            };
+
+            IДанныеИзФормы_Создания<#=ключевоеСловоДляНазваний#>_модель?[] модели =
+            {
+                null,
+                new ДанныеИзФормы_Создания<#=ключевоеСловоДляНазваний#>_модель(),
+            };
+            
+            foreach (var сервис in сервисы)
+            foreach (var пользователь in пользователи)
+            foreach (var модель in модели) 
+            {
+                <#=имяТестируемогоКласса#>? unused = null;
+                TestDelegate testDelegate = () =>
+                {
+                    unused = new <#=имяТестируемогоКласса#>(сервис, пользователь, модель);
+                };   
+
+                // не должен бросать исключение                            
+                Assert.DoesNotThrow(testDelegate);
+
+                // должен возвращать исключение
+                Assert.IsNotNull(unused?.Exception);
+
+                // есть исключение - модель = нулл                
+                Assert.IsNull(unused?.ПолучитьМодель());
+                
+                // должен возвращать только ArgumentException
+                Assert.AreEqual(unused?.Exception?.GetType(), new ArgumentException().GetType());
+
+                // результат в любом случае должен быть 
+                Assert.IsNotNull(unused?.ПолучитьРезультат());
+
+                // в любом случае возвращает JsonМодель
+                Assert.IsNotNull(unused?.ПолучитьJsonМодель());
+            }
+        }
+
+        [Test]
+        public void Проверяем_конструктор_Создать_<#=ключевоеСловоДляНазваний#>_ид_пользователя_НЕ_валидно_модель_НЕ_валидна()
+        {
+            ICommonService сервис = new Common_Service();
+
+            EMPLOYEE[] пользователи =
+            {
+                new EMPLOYEE{ id = -1 }, 
+                new EMPLOYEE{ id = 0 },
+            };
+            
+            I<#=имяКлассаМодели#> модель = new <#=имяКлассаМодели#>();
+
+            foreach (var пользователь in пользователи)
+            {
+                <#=имяТестируемогоКласса#>? unused = null;
+                TestDelegate testDelegate = () =>
+                {
+                    unused = new <#=имяТестируемогоКласса#>(сервис, пользователь, модель);
+                };   
+              
+                // не должен бросать исключение                            
+                Assert.DoesNotThrow(testDelegate);
+
+                // должен возвращать исключение
+                Assert.IsNotNull(unused?.Exception);
+
+                // есть исключение - модель = нулл                
+                Assert.IsNull(unused?.ПолучитьМодель());
+                
+                // должен возвращать только ArgumentException
+                Assert.AreEqual(unused?.Exception?.GetType(), new ArgumentException().GetType());
+
+                // результат в любом случае должен быть 
+                Assert.IsNotNull(unused?.ПолучитьРезультат());
+
+                // в любом случае возвращает JsonМодель
+                Assert.IsNotNull(unused?.ПолучитьJsonМодель());
+            }
+        }
+
+        [Test]
+        public void Проверяем_конструктор__<#=имяТестируемогоКласса#>__меняем_валидно_ид_пользователя__модель_из_конструктора_по_умолчанию()
+        {
+            ICommonService сервис = new Common_Service();
+
+            EMPLOYEE[] пользователи =
+            {
+                new EMPLOYEE{ id = 1 }, 
+                new EMPLOYEE{ id = _ID },
+            };
+            
+            I<#=имяКлассаМодели#> модель = new <#=имяКлассаМодели#>();
+
+            foreach (var пользователь in пользователи)
+            {
+                Создать_Пользователя? unused = null;
+                TestDelegate testDelegate = () =>
+                {
+                    unused = new <#=имяТестируемогоКласса#>(сервис, пользователь, модель);
+                };   
+                                        
+                // не должен бросать исключение                            
+                Assert.DoesNotThrow(testDelegate);
+
+                // должен возвращать исключение
+                Assert.IsNotNull(unused?.Exception);
+
+                // есть исключение - модель = нулл                
+                Assert.IsNull(unused?.ПолучитьМодель());
+                
+                // должен возвращать только ArgumentException
+                Assert.AreEqual(unused?.Exception?.GetType(), new ArgumentException().GetType());
+
+                // результат в любом случае должен быть 
+                Assert.IsNotNull(unused?.ПолучитьРезультат());
+
+                // в любом случае возвращает JsonМодель
+                Assert.IsNotNull(unused?.ПолучитьJsonМодель());    
+            }
+        }
+    }
+}

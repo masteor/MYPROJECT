@@ -1,0 +1,18 @@
+/* eslint-disable camelcase */
+export const ЗаявкаНаСоздание_PROFILE = 'CREATE_PROFILE'
+export const ЗаявкаНаСоздание_RIGHT = 'CREATE_RIGHT'
+export const ЗаявкаНаСоздание_MEMBER = 'CREATE_MEMBER'
+export const ЗаявкаНаСоздание_RESOURCE = 'CREATE_RESOURCE'
+export const ЗаявкаНаСоздание_RESOURCE_MEMBER = 'CREATE_RESOURCE_MEMBER'
+export const ЗаявкаНаСоздание_OBJECT = 'CREATE_OBJECT'
+export const ЗаявкаНаСоздание_DOC = 'CREATE_DOC'
+
+export const ЗаявкаНаСозданиеЗащищаемогоРесурса = 'CRRES'
+export const ЗаявкаНаСозданиеЗащищаемогоРесурсаЗЛИВС = 'CRRESZLIVS'
+export const ЗаявкаНаУдалениеФио = 'DELFIO'
+export const ЗаявкаНаСозданиеПрофиляДоступа = 'CRPROFILEOBJECTS'
+export const ЗаявкаНаПредоставлениеДоступаСубъектам = 'CRMEMBER'
+export const ЗаявкаНаСозданиеПользователя = 'CREMP'
+export const ЗаявкаНаСозданиеЛогинаВоДомене = 'CRLOGIN'
+export const ЗаявкаНаСозданиеФио = 'CRFIO'
+export const ЗаявкаНаИзменениеСтатусаЗаявки = 'CHREQSTATUS'

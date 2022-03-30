@@ -1,0 +1,8 @@
+GET http://web-test:8080/ReportAjax/GetAllResourcesFromPrd
+Accept: application/json
+###
+GET http://web-test:8080/ReportAjax/GetAllResourcesFromPrd
+Accept: application/json
+
+
+###

@@ -1,0 +1,353 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Import Project="..\packages\NUnit.3.12.0\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" />
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{8210EB20-40B3-49BB-BD55-9FFFD9116C0D}</ProjectGuid>
+        <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+        <OutputType>Library</OutputType>
+        <AppDesignerFolder>Properties</AppDesignerFolder>
+        <RootNamespace>QWERTY.Shared2.Tests</RootNamespace>
+        <AssemblyName>QWERTY.Shared2.Tests</AssemblyName>
+        <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+        <FileAlignment>512</FileAlignment>
+        <LangVersion>preview</LangVersion>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\Debug\</OutputPath>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugType>pdbonly</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\Release\</OutputPath>
+        <DefineConstants>TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="Autofac, Version=5.2.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da">
+          <HintPath>..\packages\Autofac.5.2.0\lib\net461\Autofac.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="AutoFixture, Version=4.13.0.0, Culture=neutral, PublicKeyToken=b24654c590009d4f">
+          <HintPath>..\packages\AutoFixture.4.13.0\lib\net452\AutoFixture.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="AutoFixture.NUnit3, Version=4.13.0.0, Culture=neutral, PublicKeyToken=b24654c590009d4f">
+          <HintPath>..\packages\AutoFixture.NUnit3.4.13.0\lib\net452\AutoFixture.NUnit3.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc">
+          <HintPath>..\packages\Castle.Core.4.4.0\lib\net45\Castle.Core.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="EntityFramework.Linter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=04c2ab4f9b7aa4d0">
+          <HintPath>C:\Linter\bin\EntityFramework.Linter.dll</HintPath>
+        </Reference>
+        <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="Fare, Version=2.1.0.0, Culture=neutral, PublicKeyToken=ea68d375bf33a7c8">
+          <HintPath>..\packages\Fare.2.1.2\lib\net35\Fare.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="FluentAssertions, Version=5.9.0.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a">
+          <HintPath>..\packages\FluentAssertions.5.9.0\lib\net45\FluentAssertions.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="LinterDataProvider, Version=6.0.0.0, Culture=neutral, PublicKeyToken=38a8bb1edf13da9d">
+          <HintPath>C:\Linter\bin\LinterDataProvider.dll</HintPath>
+        </Reference>
+        <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a">
+          <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+        </Reference>
+        <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+          <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="Microsoft.CSharp" />
+        <Reference Include="mscorlib" />
+        <Reference Include="NSubstitute, Version=4.2.0.0, Culture=neutral, PublicKeyToken=92dd2e9066daa5ca">
+          <HintPath>..\packages\NSubstitute.4.2.2\lib\net46\NSubstitute.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="nunit.framework, Version=3.12.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb">
+          <HintPath>..\packages\NUnit.3.12.0\lib\net45\nunit.framework.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="System" />
+        <Reference Include="System.ComponentModel.Composition" />
+        <Reference Include="System.ComponentModel.DataAnnotations" />
+        <Reference Include="System.Configuration" />
+        <Reference Include="System.Core" />
+        <Reference Include="System.Data" />
+        <Reference Include="System.Data.Linq.Linter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f02a1d1b4a4e5f7f">
+          <HintPath>C:\Linter\bin\System.Data.Linq.Linter.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Data.LinterClient, Version=6.0.0.0, Culture=neutral, PublicKeyToken=38a8bb1edf13da9d">
+          <HintPath>C:\Linter\bin\System.Data.LinterClient.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Data.LinterClient.Entity, Version=1.0.0.0, Culture=neutral, PublicKeyToken=04c2ab4f9b7aa4d0">
+          <HintPath>C:\Linter\bin\System.Data.LinterClient.Entity.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+          <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.1\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+          <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+          <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="System.Xml" />
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="Tests\Core\Db\Services\GetAll\Представления\VIEW_ARM_ROOM_USER__Tests.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Представления\VIEW_EMPLOYEE_EXT__Tests.cs">
+          <AutoGen>True</AutoGen>
+          <DesignTime>True</DesignTime>
+          <DependentUpon>VIEW_EMPLOYEE_EXT__Tests.tt</DependentUpon>
+        </Compile>
+        <Compile Include="Tests\Core\Db\Services\GetAll\Представления\VIEW_EMPLOYEE_LOGIN__Tests.cs">
+          <AutoGen>True</AutoGen>
+          <DesignTime>True</DesignTime>
+          <DependentUpon>VIEW_EMPLOYEE_LOGIN__Tests.tt</DependentUpon>
+        </Compile>
+        <Compile Include="Tests\Core\Db\Services\GetAll\Представления\VIEW_EMPLOYEE__Tests.cs">
+          <AutoGen>True</AutoGen>
+          <DesignTime>True</DesignTime>
+          <DependentUpon>VIEW_EMPLOYEE__Tests.tt</DependentUpon>
+        </Compile>
+        <Compile Include="Tests\Core\Db\Services\GetAll\Представления\VIEW_MEMBER_ORG__Tests.cs">
+          <AutoGen>True</AutoGen>
+          <DesignTime>True</DesignTime>
+          <DependentUpon>VIEW_MEMBER_ORG__Tests.tt</DependentUpon>
+        </Compile>
+        <Compile Include="Tests\Core\Db\Services\GetAll\Представления\VIEW_MEMBER_USER__Tests.cs">
+          <AutoGen>True</AutoGen>
+          <DesignTime>True</DesignTime>
+          <DependentUpon>VIEW_MEMBER_USER__Tests.tt</DependentUpon>
+        </Compile>
+        <Compile Include="Tests\Core\Db\Services\GetAll\Представления\VIEW_REPORT_ALL_PROFILES__Tests.cs">
+          <AutoGen>True</AutoGen>
+          <DesignTime>True</DesignTime>
+          <DependentUpon>VIEW_REPORT_ALL_PROFILES__Tests.tt</DependentUpon>
+        </Compile>
+        <Compile Include="Tests\Core\Db\Services\GetAll\Представления\VIEW_REPORT_ALL_REQUESTS__Tests.cs">
+          <AutoGen>True</AutoGen>
+          <DesignTime>True</DesignTime>
+          <DependentUpon>VIEW_REPORT_ALL_REQUESTS__Tests.tt</DependentUpon>
+        </Compile>
+        <Compile Include="Tests\Core\Db\Services\GetAll\Представления\VIEW_REPORT_RESOURCES_WHERE_AM_I__Tests.cs">
+          <AutoGen>True</AutoGen>
+          <DesignTime>True</DesignTime>
+          <DependentUpon>VIEW_REPORT_RESOURCES_WHERE_AM_I__Tests.tt</DependentUpon>
+        </Compile>
+        <Compile Include="Tests\Core\Db\Services\GetAll\Представления\VIEW_RESOURCES_BY_OT_ST__Tests.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Представления\VIEW_RESOURCE_MEMBER_LOGIN__Tests.cs">
+          <AutoGen>True</AutoGen>
+          <DesignTime>True</DesignTime>
+          <DependentUpon>VIEW_RESOURCE_MEMBER_LOGIN__Tests.tt</DependentUpon>
+        </Compile>
+        <Compile Include="Tests\Core\Db\Services\GetAll\Представления\VIEW_RIGHT_DESCR__Tests.cs">
+          <AutoGen>True</AutoGen>
+          <DesignTime>True</DesignTime>
+          <DependentUpon>VIEW_RIGHT_DESCR__Tests.tt</DependentUpon>
+        </Compile>
+        <Compile Include="Tests\Core\Db\Services\GetAll\Представления\VIEW_STAFF_UNIT_LOGINS__Tests.cs">
+          <AutoGen>True</AutoGen>
+          <DesignTime>True</DesignTime>
+          <DependentUpon>VIEW_STAFF_UNIT_LOGINS__Tests.tt</DependentUpon>
+        </Compile>
+        <Compile Include="Tests\Core\Db\Services\GetAll\Представления\_VIEW_RESOURCE__Tests.cs">
+          <AutoGen>True</AutoGen>
+          <DesignTime>True</DesignTime>
+          <DependentUpon>_VIEW_RESOURCE__Tests.tt</DependentUpon>
+        </Compile>
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\AC_ACCESS.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\AC_FRAGMENT.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\ARM.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\ARM_DEVICE.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\ARM_USER.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\ARM_USER_ROLE.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\BUILDING.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\DEVICE.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\DEVICE_PERM.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\DEVICE_TYPE.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\DOC.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\DOC_TYPE.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\EMPLOYEE_IN_ORG.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\EXECUTION.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\FIO.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\FORM_PERM.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\JOB.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\MEMBER.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\NOTIFY_REQUEST.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\NOTIFY_SUB.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\OBJECT.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\OBJECT_TYPE.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\ORG.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\ORG_UNIT_TYPE.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\PROFILE.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\PROM_AREA.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\REQUEST.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\REQUEST_STATE.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\REQUEST_TYPE.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\REQUEST_TYPE_STAFF.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\RESOURCE.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\RESOURCE_MEMBERS__Tests.cs">
+          <AutoGen>True</AutoGen>
+          <DesignTime>True</DesignTime>
+          <DependentUpon>RESOURCE_MEMBERS__Tests.tt</DependentUpon>
+        </Compile>
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\RESOURCE_RESP.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\RESOURCE_UCA.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\RIGHT.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\RIGHT_DESCRIPTION.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\RIGHT_GROUP.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\RIGHT_OBJECT_TYPE.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\RSO.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\SECRET_TYPE.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\SERVICE.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\SERVICE_TYPE.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\STAFF.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\STAFF_UNIT__Tests.cs">
+          <AutoGen>True</AutoGen>
+          <DesignTime>True</DesignTime>
+          <DependentUpon>STAFF_UNIT__Tests.tt</DependentUpon>
+        </Compile>
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\UCA_LIST.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\USER_ROOM.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\_EMPLOYEE__Tests.cs">
+          <AutoGen>True</AutoGen>
+          <DesignTime>True</DesignTime>
+          <DependentUpon>_EMPLOYEE__Tests.tt</DependentUpon>
+        </Compile>
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\_LOGIN__Tests.cs">
+          <AutoGen>True</AutoGen>
+          <DesignTime>True</DesignTime>
+          <DependentUpon>_LOGIN__Tests.tt</DependentUpon>
+        </Compile>
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\_ROOM__Tests.cs">
+          <AutoGen>True</AutoGen>
+          <DesignTime>True</DesignTime>
+          <DependentUpon>_ROOM__Tests.tt</DependentUpon>
+        </Compile>
+        <Compile Include="Tests\Core\Db\Services\GetAll\Таблицы\__DIC.cs" />
+        <Compile Include="Tests\Core\Db\Фильтры\ФильтрПользовательЯвлсяОтветственнымЛибоВладельцем__Тесты.cs" />
+        <Compile Include="Tests\Core\Extensions\Entity\EMPLOYEE_Extention__tests.cs" />
+        <Compile Include="Tests\Core\Models\Helper.cs" />
+        <Compile Include="Tests\Core\Models\Интеграционные Тесты\_Создатель\Сервис_Заявка__Тесты.cs" />
+        <Compile Include="Tests\Core\Models\Интеграционные Тесты\Документы\DocPaths__Tests.cs" />
+        <Compile Include="Tests\Core\Models\Интеграционные Тесты\Документы\Документ__ЗаявкаНаСозданиеЗащищаемогоРесурсаЗЛИВС__Тесты.cs" />
+        <Compile Include="Tests\Core\Models\Интеграционные Тесты\Заявки\СозданиеЗащищаемогоРесурса__Тесты.cs" />
+        <Compile Include="Tests\Core\Models\Интеграционные Тесты\Заявки\СозданиеЗащищаемогоРесурсаЗЛИВС__Тесты.cs" />
+        <Compile Include="Tests\Core\Models\Интеграционные Тесты\Заявки\СозданиеПрофиляДоступа__Тесты.cs" />
+        <Compile Include="Tests\Core\Models\Интеграционные Тесты\Заявки\Создать_ПредоставитьДоступСубъектам__Тесты.cs" />
+        <Compile Include="Tests\Core\Models\Модульные Тесты\InitModule.cs" />
+        <Compile Include="Tests\Core\Models\Модульные Тесты\InitModuleТесты.cs" />
+        <Compile Include="Tests\Core\Models\Модульные Тесты\IМоделиТесты.cs" />
+        <Compile Include="Tests\Core\Models\Модульные Тесты\_Создатель\Сервис_Заявка__Тесты\Сервис_Заявка__СменитьСтатусЗаявки__Тесты.cs" />
+        <Compile Include="Tests\Core\Models\Модульные Тесты\_Создатель\Сервис_Заявка__Тесты\Сервис_Заявка__СоздатьЗаявкуПоИмениТипа__Тесты.cs" />
+        <Compile Include="Tests\Core\Models\Модульные Тесты\_Создатель\Сервис_Заявка__Тесты\Сервис_Заявка__ОткатитьВсеСозданныеЗаявки__Тесты.cs" />
+        <Compile Include="Tests\Core\Models\Модульные Тесты\_Создатель\Сервис_Заявка__Тесты\Сервис_Заявка__Тесты.cs" />
+        <Compile Include="Tests\Core\Models\Модульные Тесты\_Создатель\СоздательКонструкторы__Тесты.cs" />
+        <Compile Include="Tests\Core\Models\Модульные Тесты\ВалидацияМоделей\Валидация_RequestParams__Тесты.cs" />
+        <Compile Include="Tests\Core\Models\Модульные Тесты\ВалидацияМоделей\Валидация_ДанныеИзФормы__Тесты.cs" />
+        <Compile Include="Tests\Core\Models\Модульные Тесты\ВалидацияМоделей\Валидация_ДанныеИзФормы_СозданиеЗащищаемогоРесурса_модель__Тесты.cs" />
+        <Compile Include="Tests\Core\Models\Модульные Тесты\ВалидацияМоделей\Валидация_ДанныеИзФормы_ПредоставлениеДоступаСубъектам__Тесты.cs" />
+        <Compile Include="Tests\Core\Models\Модульные Тесты\ВалидацияМоделей\Валидация_ДанныеИзФормы_СозданиеЗащищаемогоРесурсаЗЛИВС_модель__Тесты.cs" />
+        <Compile Include="Tests\Core\Models\Модульные Тесты\ВалидацияМоделей\Валидация_ДанныеИзФормы_СозданиеПрофиляДоступаНаЗащищаемыйРесурс_модель__Тесты.cs" />
+        <Compile Include="Tests\Core\Models\Модульные Тесты\Заявки\СозданиеЗащищаемогоРесурса__Тесты.cs" />
+        <Compile Include="Tests\Core\Models\Модульные Тесты\Заявки\СозданиеЗащищаемогоРесурсаЗЛИВС__Тесты.cs" />
+        <Compile Include="Tests\Core\Models\Модульные Тесты\Заявки\СозданиеПрофиляДоступа__Тесты.cs" />
+        <Compile Include="Tests\Core\Models\Модульные Тесты\Заявки\Создать_ПредоставитьДоступСубъектам__Тесты.cs" />
+        <Compile Include="Tests\Core\ГенераторМоделей__Тесты.cs" />
+        <Compile Include="Tests\Core\Рефлектор__Тесты.cs" />
+        <Compile Include="Tests\Web\ServiceRoles__Тесты.cs" />
+        <Compile Include="Обслуживание Тестов\Init.cs" />
+        <Compile Include="Обслуживание Тестов\TestHelper.cs" />
+        <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Представления\VIEW_AC_ACCESS_ORG__Tests.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Представления\VIEW_ARM_USER__Tests.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Представления\VIEW_EMPLOYEE_FIO__Tests.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Представления\VIEW_FIO__Tests.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Представления\VIEW_OBJECT_USER_RIGHTS__Tests.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Представления\VIEW_OBJECT_USER_RIGHTS_DISTINCTED__Tests.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Представления\VIEW_PROFILE__Tests.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Представления\VIEW_REPORT_AC_ACCESS__Tests.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Представления\VIEW_REPORT_ALL_RESOURCES__Tests.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Представления\VIEW_REPORT_RSD__Tests.cs" />
+        <Compile Include="Tests\Core\Db\Services\GetAll\Представления\VIEW_RESOURCE_EXT__Tests.cs" />
+        <Compile Include="Tests\Core\Db\Setup.cs" />
+        <Compile Include="Tests\Core\Extensions\Helper__tests.cs" />
+        <Compile Include="Tests\Core\Extensions\ModelExtensions.cs" />
+        <Compile Include="Tests\Core\Extensions\StringHelper.cs" />
+        <Compile Include="Tests\Прочие\DatabaseExist.cs" />
+        <Compile Include="Обслуживание Тестов\ГенераторМоделей.cs" />
+        <Compile Include="Обслуживание Тестов\НеВалидные.cs" />
+        <Compile Include="Обслуживание Тестов\Рефлектор.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <None Include="App.config" />
+      <None Include="packages.config" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\QWERTY.Shared.CodeFirst\QWERTY.Shared.csproj">
+        <Project>{cd433e12-7f2e-4f0c-a5aa-f0b8b6f8db79}</Project>
+        <Name>QWERTY.Shared</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\QWERTY.Web\QWERTY.Web.csproj">
+        <Project>{9f51afec-367a-4d00-823a-7c1c54804027}</Project>
+        <Name>QWERTY.Web</Name>
+      </ProjectReference>
+    </ItemGroup>
+    <ItemGroup>
+      <Content Include="Tests\Core\Db\Services\GetAll\__ШАБЛОН__\Представления\VIEW_MEMBER_ORG__Tests.tt">
+        <Generator>TextTemplatingFileGenerator</Generator>
+        <LastGenOutput>VIEW_MEMBER_ORG__Tests.cs</LastGenOutput>
+      </Content>
+      <Content Include="Tests\Core\Db\Services\GetAll\__ШАБЛОН__\Таблицы\RESOURCE_MEMBERS__Tests.tt">
+        <Generator>TextTemplatingFileGenerator</Generator>
+        <LastGenOutput>RESOURCE_MEMBERS__Tests.cs</LastGenOutput>
+      </Content>
+    </ItemGroup>
+    <ItemGroup>
+      <Analyzer Include="..\packages\NSubstitute.Analyzers.CSharp.1.0.13\analyzers\dotnet\cs\NSubstitute.Analyzers.CSharp.dll" />
+      <Analyzer Include="..\packages\NSubstitute.Analyzers.CSharp.1.0.13\analyzers\dotnet\cs\NSubstitute.Analyzers.Shared.dll" />
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+    <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+      <PropertyGroup>
+        <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105.The missing file is {0}.</ErrorText>
+      </PropertyGroup>
+      <Error Condition="!Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.12.0\build\NUnit.props'))" />
+    </Target>
+    <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+         Other similar extension points exist, see Microsoft.Common.targets.
+    <Target Name="BeforeBuild">
+    </Target>
+    <Target Name="AfterBuild">
+    </Target>
+    -->
+
+</Project>

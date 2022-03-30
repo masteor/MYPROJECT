@@ -1,0 +1,2 @@
+GET http://test-web:8080/RequestAjax/GetFIOs
+Accept: application/json

@@ -1,0 +1,129 @@
+<#@ template language="C#" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output encoding="utf-8" extension=".cs"#>
+<#const string ключевоеСловоДляНазваний = "Пользователя"; #>
+<#const string имяТестируемогоКласса = "Создать_Пользователя"; #>
+<#const string имяПеременнойЭкземпляраКласса = "создатьПользователя"; #>
+<#const string имяКлассаМодели = "ДанныеИзФормы_СозданияПользователя_модель"; #>
+
+using System;
+using System.Collections.Generic;
+using Autofac;
+using AutoFixture;
+using DBPSA.Shared.Db.Entities.Таблицы;
+using DBPSA.Shared.Db.Services;
+using DBPSA.Shared.Models;
+using DBPSA.Shared2.Tests.Tests.Core.Db;
+using DBPSA.Shared2.Tests.Tests.Core.Extensions;
+using NUnit.Framework;
+
+namespace DBPSA.Shared2.Tests.Tests.Core.Models
+{
+    [TestFixture]
+    public class Создать__<#=ключевоеСловоДляНазваний#>__Тесты : Init
+    {
+        [Test]
+        public void Проверяем_конструктор_на_НЕ_нулл_входных_данных__модель_не_валидна()
+        {
+            ICommonService сервис = new Common_Service();
+
+            EMPLOYEE[] валидныеПользователи =
+            {
+                new EMPLOYEE{ id = 1 }, 
+                new EMPLOYEE{ id = _ID },
+            };
+
+            string?[] неВалидныеСтроки = { null, "" };
+            DateTime?[] неВалидныеДаты = { null, DateTime.MinValue, DateTime.MaxValue };
+                
+            {
+                foreach (var строка1 in неВалидныеСтроки)
+                foreach (var строка2 in неВалидныеСтроки)
+                foreach (var строка3 in неВалидныеСтроки)
+                foreach (var дата in неВалидныеДаты)
+                foreach (var пользователь in валидныеПользователи)
+                {
+                    <#=имяТестируемогоКласса#>? dummy = null;
+                    TestDelegate testDelegate = () =>
+                    {
+                        dummy = new <#=имяТестируемогоКласса#>(сервис, пользователь, new <#=имяКлассаМодели#>
+                        {
+                            ИСПРАВИТЬ ПОД ТЕСТИРУЕМЫЙ КЛАСС
+                        });
+                    };  
+                    
+                    StringHelper.Print(dummy);
+                    Assert.DoesNotThrow(testDelegate);
+                    
+                    I<#=имяКлассаМодели#> модель = new <#=имяКлассаМодели#>
+                    {
+                        ИСПРАВИТЬ ПОД ТЕСТИРУЕМЫЙ КЛАСС
+                    };
+                    
+                    var <#=имяПеременнойЭкземпляраКласса#> = new <#=имяТестируемогоКласса#>(сервис, пользователь, модель);
+                    Assert.IsNotNull(<#=имяПеременнойЭкземпляраКласса#>.Exception);
+
+                    if (<#=имяПеременнойЭкземпляраКласса#>.Exception!.Message.Contains("Ссылка на объект не указывает на экземпляр объекта"))
+                    {
+                        foreach (var поле in получитьПоля<#=ключевоеСловоДляНазваний#>(модель))
+                            TestContext.Out.WriteLine(поле);
+
+                        Assert.AreEqual(<#=имяПеременнойЭкземпляраКласса#>.Exception?.Message, "");    
+                    }
+                    
+                    Assert.AreEqual(<#=имяПеременнойЭкземпляраКласса#>.Exception?.Message, "Модель не валидна");
+                    
+                    IEnumerable<string> получитьПоля<#=ключевоеСловоДляНазваний#>(I<#=имяКлассаМодели#> модель)
+                    {
+                        ИСПРАВИТЬ ПОД ТЕСТИРУЕМЫЙ КЛАСС
+                        yield return $"date_time: {StringHelper.Print(модель.date_time)}";
+                        yield return $"family: {StringHelper.Print(модель.family)}";
+                        yield return $"name: {StringHelper.Print(модель.name)}";
+                        yield return $"patronymic: {StringHelper.Print(модель.patronymic)}";
+                    }
+                }    
+            }
+        }
+
+        [Test]
+        public void Создаем_<#=ключевоеСловоДляНазваний#>_на_валидных_данных()
+        {
+            using var scope = _container?.BeginLifetimeScope() ?? throw new NullReferenceException();
+            var commonService = scope.Resolve<ICommonService>() ?? throw new NullReferenceException();
+
+            EMPLOYEE пользователь = new EMPLOYEE { id=_ID };
+            
+            
+            I<#=имяКлассаМодели#> модель = new <#=имяКлассаМодели#>
+            {
+                \\\\\\\\\\\\ ТРЕБУЕТСЯ РУЧНАЯ ПРАВКА \\\\\\\\\\\\
+
+                
+                date_time = DateTime.Now
+            };
+            
+            var <#=имяПеременнойЭкземпляраКласса#> = new <#=имяТестируемогоКласса#>(commonService, пользователь, модель);
+
+            Assert.IsNotNull(<#=имяПеременнойЭкземпляраКласса#>);
+            
+            var exception = <#=имяПеременнойЭкземпляраКласса#>.Exception;
+            Assert.IsNull(exception);
+            
+            var заявка = <#=имяПеременнойЭкземпляраКласса#>.ПолучитьЗаявку();
+            var \\\\ = <#=имяПеременнойЭкземпляраКласса#>.ПолучитьФИО();
+            
+            \\\\\\\\\\\\ ТРЕБУЕТСЯ РУЧНАЯ ПРАВКА \\\\\\\\\\\\
+            Console.WriteLine($@"code = {StringHelper.Print(создатьФио.ПолучитьРезультат()?.code)}");
+            Console.WriteLine(создатьФио.ПолучитьРезультат()?.msg);
+            Console.WriteLine($@"ид заявки: {StringHelper.Print(заявка?.id)}");
+            Console.WriteLine($@"ид фио: {StringHelper.Print(фио?.id)}");
+            
+            Assert.AreEqual(<#=имяПеременнойЭкземпляраКласса#>.ПолучитьРезультат()?.code, 200);
+            Assert.IsTrue(<#=имяПеременнойЭкземпляраКласса#>.ПолучитьРезультат()?.msg.Contains("успешно создан"));
+            
+            Assert.GreaterOrEqual(\\\\\\\\\\?.id, 1);
+            Assert.GreaterOrEqual(заявка?.id, 1);
+        }
+    }
+}

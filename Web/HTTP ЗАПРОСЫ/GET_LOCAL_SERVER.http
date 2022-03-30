@@ -1,0 +1,332 @@
+###
+GET http://localhost:1689/RequestAjax/GetFIOs
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+###
+
+GET http://localhost:1689/RequestAjax/GetFIO?id=4
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+###
+
+###
+
+GET http://localhost:1689/RequestAjax/GetFormPerms
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+###
+
+###
+
+GET http://localhost:1689/RequestAjax/GetFio
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+###
+
+###
+
+GET http://localhost:1689/RequestAjax/GetEmployees
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+###
+
+GET http://localhost:1689/RequestAjax/GetEmployee?tnum=96456
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+###
+
+GET http://localhost:1689/RequestAjax/GetOrgEntities
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+###
+
+###
+
+GET http://localhost:1689/RequestAjax/GetService?ServiceTypeId=1&FragmentId=1
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+###
+
+###
+
+GET http://localhost:1689/RequestAjax/GetServiceType?objectTypeId=1
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+###
+
+###
+
+GET http://localhost:1689/RequestAjax/GetObjectType?serviceTypeId=1&mainObjectId=1
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+###
+
+###
+
+GET http://localhost:1689/RequestAjax/GetObjectType?id=1
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+###
+
+###
+
+GET http://localhost:1689/RequestAjax/Responsible
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+###
+
+###
+
+GET http://localhost:1689/RequestAjax/Owner
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+###
+
+###
+
+GET http://localhost:1689/RequestAjax/GetFragments
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+###
+
+###
+
+GET http://localhost:1689/RequestAjax/CheckObjectName
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+###
+
+###
+
+GET http://localhost:1689/RequestAjax/CheckTnum
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+###
+
+
+
+###
+
+GET http://localhost:1689/RequestAjax/GetResources
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+###
+
+###
+
+GET http://localhost:1689/RequestAjax/CheckProfileName
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+###
+
+
+###
+
+GET http://localhost:1689/RequestAjax/GetProfiles
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+###
+
+
+###
+
+GET http://localhost:1689/RequestAjax/GetRightDescr
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+###
+
+###
+
+GET http://localhost:1689/RequestAjax/GetObjectNameById
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+###
+
+
+###
+
+GET http://localhost:1689/RequestAjax/GetJobs
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+###
+
+
+###
+
+GET http://localhost:1689/RequestAjax/CheckLogin
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+###
+
+
+###
+
+GET http://localhost:1689/RequestAjax/GetLogins
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+###
+
+
+###
+
+GET http://localhost:1689/RequestAjax/GetFormPerms
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+###
+
+
+###
+
+GET http://localhost:1689/RequestAjax/GetFIO
+s
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+###
+
+###
+
+GET http://localhost:1689/RequestAjax/GetBinaryDocument?id=11793
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+###
+
+GET http://localhost:1689/RequestAjax/GetObjectServiceTypes/
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+###
+
+GET http://localhost:1689/RequestAjax/GetRightDescr
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+###
+
+###
+
+GET http://localhost:1689/RequestAjax/
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+###
+

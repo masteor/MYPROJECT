@@ -1,0 +1,780 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CD433E12-7F2E-4F0C-A5AA-F0B8B6F8DB79}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QWERTY.Shared</RootNamespace>
+    <AssemblyName>QWERTY.Shared</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+    <LangVersion>8</LangVersion>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32bit>false</Prefer32bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32bit>false</Prefer32bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=5.2.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da">
+      <HintPath>..\packages\Autofac.5.2.0\lib\net461\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.Linter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=04c2ab4f9b7aa4d0, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.Linter.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.LinterClient, Version=6.0.0.0, Culture=neutral, PublicKeyToken=38a8bb1edf13da9d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\System.Data.LinterClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Xceed.Document.NET, Version=1.7.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4">
+      <HintPath>..\packages\DocX.1.7.1\lib\net40\Xceed.Document.NET.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Words.NET, Version=1.7.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4">
+      <HintPath>..\packages\DocX.1.7.1\lib\net40\Xceed.Words.NET.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Db\Configuration\Представления\TEST_Configuration.cs" />
+    <Compile Include="Db\Configuration\Представления\VIEW_EMPLOYEE_Configuration.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VIEW_EMPLOYEE_Configuration.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Configuration\Представления\VIEW_EMPLOYEE_FIO_Configuration.cs" />
+    <Compile Include="Db\Configuration\Представления\VIEW_EMPLOYEE_LOGIN__Configuration.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VIEW_EMPLOYEE_LOGIN__Configuration.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Configuration\Представления\VIEW_FIO_Configuration.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VIEW_FIO_Configuration.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Configuration\Представления\VIEW_MEMBER_ORG__Configuration.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VIEW_MEMBER_ORG__Configuration.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Configuration\Представления\VIEW_MEMBER_USER__Configuration.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VIEW_MEMBER_USER__Configuration.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Configuration\Представления\VIEW_OWNER_Configuration.cs" />
+    <Compile Include="Db\Configuration\Представления\VIEW_PROFILE_Configuration.cs" />
+    <Compile Include="Db\Configuration\Представления\VIEW_PROFILE_OBJECT_RIGHT__Configuration.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VIEW_PROFILE_OBJECT_RIGHT__Configuration.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Configuration\Представления\VIEW_REPORT_ALL_PROFILES__Configuration.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VIEW_REPORT_ALL_PROFILES__Configuration.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Configuration\Представления\VIEW_REPORT_ALL_REQUESTS_Configuration.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VIEW_REPORT_ALL_REQUESTS_Configuration.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Configuration\Представления\VIEW_REPORT_RESOURCES_WHERE_AM_I__Configuration.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VIEW_REPORT_RESOURCES_WHERE_AM_I__Configuration.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Configuration\Представления\VIEW_REPORT_RSD_Configuration.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Configuration.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Configuration\Представления\VIEW_ARM_USER_Configuration.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Configuration.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Configuration\Представления\VIEW_REPORT_ALL_RESOURCES_Configuration.cs" />
+    <Compile Include="Db\Configuration\Представления\VIEW_REPORT_AC_ACCESS_Configuration.cs" />
+    <Compile Include="Db\Configuration\Представления\VIEW_AC_ACCESS_ORG_Configuration.cs" />
+    <Compile Include="Db\Configuration\Представления\VIEW_ARM_ROOM_USER_Configuration.cs" />
+    <Compile Include="Db\Configuration\Представления\VIEW_EMPLOYEE_EXT_Configuration.cs" />
+    <Compile Include="Db\Configuration\Представления\VIEW_OBJECT_USER_RIGHTS_Configuration.cs" />
+    <Compile Include="Db\Configuration\Представления\VIEW_OBJECT_USER_RIGHTS_DISTINCTED_Configuration.cs" />
+    <Compile Include="Db\Configuration\Представления\VIEW_RESOURCES_BY_OT_ST_Configuration.cs" />
+    <Compile Include="Db\Configuration\Представления\VIEW_RESOURCE_EXT_Configuration.cs" />
+    <Compile Include="Db\Configuration\Представления\VIEW_RESOURCE_MEMBER_LOGIN__Configuration.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VIEW_RESOURCE_MEMBER_LOGIN__Configuration.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Configuration\Представления\VIEW_RESOURCE_MEMBER_ORG__Configuration.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VIEW_RESOURCE_MEMBER_ORG__Configuration.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Configuration\Представления\VIEW_RESOURCE_USER_RIGHT_Configuration.cs" />
+    <Compile Include="Db\Configuration\Представления\VIEW_RESOURCE__Configuration.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VIEW_RESOURCE__Configuration.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Configuration\Представления\VIEW_RIGHT_DESCR__Configuration.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VIEW_RIGHT_DESCR__Configuration.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Configuration\Представления\VIEW_STAFF_UNIT_LOGINS_Configuration.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VIEW_STAFF_UNIT_LOGINS_Configuration.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Configuration\Системные таблицы\ATTRI_Configuration.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Configuration.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Configuration\Системные таблицы\SYSRL_Configuration.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Configuration.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Configuration\Таблицы\AC_ACCESS_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\AC_FRAGMENT_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\ARM_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\ARM_DEVICE_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\ARM_USER_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\ARM_USER_ROLE_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\BUILDING_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\DEVICE_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\DEVICE_PERM_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\DEVICE_TYPE_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\DOC_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\DOC_TYPE_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\EMPLOYEE_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\EMPLOYEE_IN_ORG_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\EXECUTION_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\FIO_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\FORM_PERM_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\JOB_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\LOGIN_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\MEMBER_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\NOTIFY_REQUEST_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\NOTIFY_SUB_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\OBJECT_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\OBJECT_TYPE_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\ORG_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\ORG_UNIT_TYPE_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\PROFILE_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\PROM_AREA_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\REQUEST_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\REQUEST_STATE_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\REQUEST_TYPE_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\REQUEST_TYPE_STAFF_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\RESOURCE_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\RESOURCE_MEMBERS__Configuration.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RESOURCE_MEMBERS__Configuration.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Configuration\Таблицы\RESOURCE_RESP_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\RESOURCE_UCA_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\RIGHT_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\RIGHT_DESCRIPTION_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\RIGHT_GROUP_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\RIGHT_OBJECT_TYPE_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\ROOM_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\RSO_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\SECRET_TYPE_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\SERVICE_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\SERVICE_TYPE_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\STAFF_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\STAFF_UNIT_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\UCA_LIST_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\USER_ROOM_Configuration.cs" />
+    <Compile Include="Db\Configuration\Таблицы\__DIC_Configuration.cs" />
+    <Compile Include="Db\CreateRequestState.cs" />
+    <Compile Include="Db\DbModelBuilder.cs" />
+    <Compile Include="Db\DbSets.cs" />
+    <Compile Include="Db\Entities\ИменаТаблиц.cs" />
+    <Compile Include="Db\Entities\Представления\TEST.cs" />
+    <Compile Include="Db\Entities\Представления\VIEW_EMPLOYEE.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VIEW_EMPLOYEE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Entities\Представления\VIEW_EMPLOYEE_LOGIN.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VIEW_EMPLOYEE_LOGIN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Entities\Представления\VIEW_EMPLOYEE_FIO.cs" />
+    <Compile Include="Db\Entities\Представления\VIEW_FIO.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VIEW_FIO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Entities\Представления\VIEW_MEMBER_ORG.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VIEW_MEMBER_ORG.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Entities\Представления\VIEW_MEMBER_USER.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VIEW_MEMBER_USER.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Entities\Представления\VIEW_OWNER.cs" />
+    <Compile Include="Db\Entities\Представления\VIEW_PROFILE.cs" />
+    <Compile Include="Db\Entities\Представления\VIEW_PROFILE_OBJECT_RIGHT.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VIEW_PROFILE_OBJECT_RIGHT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Entities\Представления\VIEW_REPORT_ALL_PROFILES.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VIEW_REPORT_ALL_PROFILES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Entities\Представления\VIEW_REPORT_ALL_REQUESTS.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VIEW_REPORT_ALL_REQUESTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Entities\Представления\VIEW_REPORT_RESOURCES_WHERE_AM_I.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VIEW_REPORT_RESOURCES_WHERE_AM_I.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Entities\Представления\VIEW_REPORT_RSD.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Entities\Представления\VIEW_ARM_USER.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Entities\Представления\VIEW_REPORT_ALL_RESOURCES.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Entities\Представления\VIEW_REPORT_AC_ACCESS.cs" />
+    <Compile Include="Db\Entities\Представления\VIEW_AC_ACCESS_ORG.cs" />
+    <Compile Include="Db\Entities\Представления\VIEW_ARM_ROOM_USER.cs" />
+    <Compile Include="Db\Entities\Представления\VIEW_EMPLOYEE_EXT.cs" />
+    <Compile Include="Db\Entities\Представления\VIEW_OBJECT_USER_RIGHTS.cs" />
+    <Compile Include="Db\Entities\Представления\VIEW_OBJECT_USER_RIGHTS_DISTINCTED.cs" />
+    <Compile Include="Db\Entities\Представления\VIEW_RESOURCE.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VIEW_RESOURCE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Entities\Представления\VIEW_RESOURCES_BY_OT_ST.cs" />
+    <Compile Include="Db\Entities\Представления\VIEW_RESOURCE_EXT.cs" />
+    <Compile Include="Db\Entities\Представления\VIEW_RESOURCE_MEMBER_EMPLOYEE.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VIEW_RESOURCE_MEMBER_LOGIN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Entities\Представления\VIEW_RESOURCE_MEMBER_ORG.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VIEW_RESOURCE_MEMBER_ORG.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Entities\Представления\VIEW_RESOURCE_USER_RIGHT.cs" />
+    <Compile Include="Db\Entities\Представления\VIEW_RIGHT_DESCR.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VIEW_RIGHT_DESCR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Entities\Представления\VIEW_STAFF_UNIT_LOGINS.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VIEW_STAFF_UNIT_LOGINS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Entities\Системные таблицы\ATTRI.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Entities\Системные таблицы\SYSRL.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Entities\Таблицы\AC_ACCESS.cs" />
+    <Compile Include="Db\Entities\Таблицы\AC_FRAGMENT.cs" />
+    <Compile Include="Db\Entities\Таблицы\ARM.cs" />
+    <Compile Include="Db\Entities\Таблицы\ARM_DEVICE.cs" />
+    <Compile Include="Db\Entities\Таблицы\ARM_USER.cs" />
+    <Compile Include="Db\Entities\Таблицы\ARM_USER_ROLE.cs" />
+    <Compile Include="Db\Entities\Таблицы\BUILDING.cs" />
+    <Compile Include="Db\Entities\Таблицы\DEVICE.cs" />
+    <Compile Include="Db\Entities\Таблицы\DEVICE_PERM.cs" />
+    <Compile Include="Db\Entities\Таблицы\DEVICE_TYPE.cs" />
+    <Compile Include="Db\Entities\Таблицы\DOC.cs" />
+    <Compile Include="Db\Entities\Таблицы\DOC_TYPE.cs" />
+    <Compile Include="Db\Entities\Таблицы\EMPLOYEE.cs" />
+    <Compile Include="Db\Entities\Таблицы\EMPLOYEE_IN_ORG.cs" />
+    <Compile Include="Db\Entities\Таблицы\EXECUTION.cs" />
+    <Compile Include="Db\Entities\Таблицы\FIO.cs" />
+    <Compile Include="Db\Entities\Таблицы\FORM_PERM.cs" />
+    <Compile Include="Db\Entities\Таблицы\JOB.cs" />
+    <Compile Include="Db\Entities\Таблицы\LOGIN.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LOGIN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Entities\Таблицы\MEMBER.cs" />
+    <Compile Include="Db\Entities\Таблицы\NOTIFY_REQUEST.cs" />
+    <Compile Include="Db\Entities\Таблицы\NOTIFY_SUB.cs" />
+    <Compile Include="Db\Entities\Таблицы\OBJECT.cs" />
+    <Compile Include="Db\Entities\Таблицы\OBJECT_TYPE.cs" />
+    <Compile Include="Db\Entities\Таблицы\ORG.cs" />
+    <Compile Include="Db\Entities\Таблицы\ORG_UNIT_TYPE.cs" />
+    <Compile Include="Db\Entities\Таблицы\PROFILE.cs" />
+    <Compile Include="Db\Entities\Таблицы\PROM_AREA.cs" />
+    <Compile Include="Db\Entities\Таблицы\REQUEST.cs" />
+    <Compile Include="Db\Entities\Таблицы\REQUEST_STATE.cs" />
+    <Compile Include="Db\Entities\Таблицы\REQUEST_TYPE.cs" />
+    <Compile Include="Db\Entities\Таблицы\REQUEST_TYPE_STAFF.cs" />
+    <Compile Include="Db\Entities\Таблицы\RESOURCE.cs" />
+    <Compile Include="Db\Entities\Таблицы\RESOURCE_MEMBER.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RESOURCE_MEMBERS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Entities\Таблицы\RESOURCE_RESP.cs" />
+    <Compile Include="Db\Entities\Таблицы\RESOURCE_UCA.cs" />
+    <Compile Include="Db\Entities\Таблицы\RIGHT.cs" />
+    <Compile Include="Db\Entities\Таблицы\RIGHT_DESCR.cs" />
+    <Compile Include="Db\Entities\Таблицы\RIGHT_GROUP.cs" />
+    <Compile Include="Db\Entities\Таблицы\RIGHT_OBJECT_TYPE.cs" />
+    <Compile Include="Db\Entities\Таблицы\ROOM.cs" />
+    <Compile Include="Db\Entities\Таблицы\RSO.cs" />
+    <Compile Include="Db\Entities\Таблицы\SECRET_TYPE.cs" />
+    <Compile Include="Db\Entities\Таблицы\SERVICE.cs" />
+    <Compile Include="Db\Entities\Таблицы\SERVICE_TYPE.cs" />
+    <Compile Include="Db\Entities\Таблицы\STAFF.cs" />
+    <Compile Include="Db\Entities\Таблицы\STAFF_UNIT.cs" />
+    <Compile Include="Db\Entities\Таблицы\UCA_LIST.cs" />
+    <Compile Include="Db\Entities\Таблицы\USER_ROOM.cs" />
+    <Compile Include="Db\Entities\Таблицы\__DIC.cs" />
+    <Compile Include="Db\Id.cs" />
+    <Compile Include="Db\Infrastructure\DbFactory.cs" />
+    <Compile Include="Db\Infrastructure\DisposableObject.cs" />
+    <Compile Include="Db\Infrastructure\IDbFactory.cs" />
+    <Compile Include="Db\Infrastructure\IRepository.cs" />
+    <Compile Include="Db\Infrastructure\IUnitOfWork.cs" />
+    <Compile Include="Db\Infrastructure\RepositoryBase.cs" />
+    <Compile Include="Db\Infrastructure\UnitOfWork.cs" />
+    <Compile Include="Db\Repositories\AC_ACCESS_Repository.cs" />
+    <Compile Include="Db\Repositories\AC_FRAGMENT_Repository.cs" />
+    <Compile Include="Db\Repositories\ARM_DEVICE_Repository.cs" />
+    <Compile Include="Db\Repositories\ARM_Repository.cs" />
+    <Compile Include="Db\Repositories\ARM_USER_Repository.cs" />
+    <Compile Include="Db\Repositories\ARM_USER_ROLE_Repository.cs" />
+    <Compile Include="Db\Repositories\BUILDING_Repository.cs" />
+    <Compile Include="Db\Repositories\DEVICE_PERM_Repository.cs" />
+    <Compile Include="Db\Repositories\DEVICE_Repository.cs" />
+    <Compile Include="Db\Repositories\DEVICE_TYPE_Repository.cs" />
+    <Compile Include="Db\Repositories\ATTRI_Repositories.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Repositories.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Repositories\RESOURCE_MEMBERS__Repository.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RESOURCE_MEMBERS__Repository.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Repositories\VIEW_EMPLOYEE_FIO_Repository.cs" />
+    <Compile Include="Db\Repositories\VIEW_EMPLOYEE_LOGIN__Repository.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VIEW_EMPLOYEE_LOGIN__Repository.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Repositories\VIEW_EMPLOYEE_Repository.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VIEW_EMPLOYEE_Repository.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Repositories\VIEW_FIO_Repository.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VIEW_FIO_Repository.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Repositories\VIEW_MEMBER_USER__Repository.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VIEW_MEMBER_USER__Repository.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Repositories\VIEW_OWNER_Repository.cs" />
+    <Compile Include="Db\Repositories\VIEW_PROFILE_OBJECT_RIGHT__Repository.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VIEW_PROFILE_OBJECT_RIGHT__Repository.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Repositories\VIEW_PROFILE_Repository.cs" />
+    <Compile Include="Db\Repositories\VIEW_REPORT_ALL_PROFILES__Repository.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VIEW_REPORT_ALL_PROFILES__Repository.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Repositories\VIEW_REPORT_ALL_REQUESTS_Repository.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VIEW_REPORT_ALL_REQUESTS_Repository.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Repositories\VIEW_REPORT_RESOURCES_WHERE_AM_I__Repository.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VIEW_REPORT_RESOURCES_WHERE_AM_I__Repository.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Repositories\VIEW_REPORT_RSD_Repository.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Repositories.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Repositories\VIEW_ARM_USER_Repository.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Repositories.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Repositories\SYSRL_Repositories.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Repositories.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Repositories\VIEW_REPORT_ALL_RESOURCES_Repository.cs" />
+    <Compile Include="Db\Repositories\VIEW_REPORT_AC_ACCESS_Repository.cs" />
+    <Compile Include="Db\Repositories\VIEW_RESOURCES_BY_OT_ST_Repository.cs" />
+    <Compile Include="Db\Repositories\VIEW_RESOURCE_EXT_Repository.cs" />
+    <Compile Include="Db\Repositories\VIEW_AC_ACCESS_ORG_Repository.cs" />
+    <Compile Include="Db\Repositories\VIEW_ARM_ROOM_USER_Repository.cs" />
+    <Compile Include="Db\Repositories\VIEW_EMPLOYEE_EXT_Repository.cs" />
+    <Compile Include="Db\Repositories\VIEW_OBJECT_USER_RIGHTS_DISTINCTED_Repository.cs" />
+    <Compile Include="Db\Repositories\VIEW_OBJECT_USER_RIGHTS_Repository.cs" />
+    <Compile Include="Db\Repositories\RIGHT_OBJECT_TYPE_Repository.cs" />
+    <Compile Include="Db\Repositories\VIEW_RESOURCE_MEMBER_LOGIN__Repository.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VIEW_RESOURCE_MEMBER_LOGIN__Repository.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Repositories\VIEW_RESOURCE_MEMBER_ORG__Repository.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VIEW_RESOURCE_MEMBER_ORG__Repository.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Repositories\VIEW_RESOURCE_USER_RIGHT_Repository.cs" />
+    <Compile Include="Db\Repositories\VIEW_RESOURCE__Repository.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VIEW_RESOURCE__Repository.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Repositories\VIEW_RIGHT_DESCR__Repository.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VIEW_RIGHT_DESCR__Repository.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Repositories\VIEW_STAFF_UNIT_LOGINS_Repository.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VIEW_STAFF_UNIT_LOGINS_Repository.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Repositories\_TEST_Repository.cs" />
+    <Compile Include="Db\Repositories\__DIC_Repository.cs" />
+    <Compile Include="Db\Repositories\DOC_Repository.cs" />
+    <Compile Include="Db\Repositories\DOC_TYPE_Repository.cs" />
+    <Compile Include="Db\Repositories\EMPLOYEE_IN_ORG_Repository.cs" />
+    <Compile Include="Db\Repositories\EMPLOYEE_Repository.cs" />
+    <Compile Include="Db\Repositories\EXECUTION_Repository.cs" />
+    <Compile Include="Db\Repositories\FIO_Repository.cs" />
+    <Compile Include="Db\Repositories\FORM_PERM_Repository.cs" />
+    <Compile Include="Db\Repositories\JOB_Repository.cs" />
+    <Compile Include="Db\Repositories\LOGIN_Repository.cs" />
+    <Compile Include="Db\Repositories\MEMBER_Repository.cs" />
+    <Compile Include="Db\Repositories\NOTIFY_REQUEST_Repository.cs" />
+    <Compile Include="Db\Repositories\NOTIFY_SUB_Repository.cs" />
+    <Compile Include="Db\Repositories\OBJECT_Repository.cs" />
+    <Compile Include="Db\Repositories\OBJECT_TYPE_Repository.cs" />
+    <Compile Include="Db\Repositories\ORG_Repository.cs" />
+    <Compile Include="Db\Repositories\ORG_UNIT_TYPE_Repository.cs" />
+    <Compile Include="Db\Repositories\PROFILE_Repository.cs" />
+    <Compile Include="Db\Repositories\PROM_AREA_Repository.cs" />
+    <Compile Include="Db\Repositories\REQUEST_Repository.cs" />
+    <Compile Include="Db\Repositories\REQUEST_STATE_Repository.cs" />
+    <Compile Include="Db\Repositories\REQUEST_TYPE_Repository.cs" />
+    <Compile Include="Db\Repositories\REQUEST_TYPE_STAFF_Repository.cs" />
+    <Compile Include="Db\Repositories\RESOURCE_Repository.cs" />
+    <Compile Include="Db\Repositories\RESOURCE_RESP_Repository.cs" />
+    <Compile Include="Db\Repositories\RESOURCE_UCA_Repository.cs" />
+    <Compile Include="Db\Repositories\RIGHT_DESCRIPTION_Repository.cs" />
+    <Compile Include="Db\Repositories\RIGHT_GROUP_Repository.cs" />
+    <Compile Include="Db\Repositories\RIGHT_Repository.cs" />
+    <Compile Include="Db\Repositories\ROOM_Repository.cs" />
+    <Compile Include="Db\Repositories\RSO_Repository.cs" />
+    <Compile Include="Db\Repositories\SECRET_TYPE_Repository.cs" />
+    <Compile Include="Db\Repositories\SERVICE_Repository.cs" />
+    <Compile Include="Db\Repositories\SERVICE_TYPE_Repository.cs" />
+    <Compile Include="Db\Repositories\STAFF_Repository.cs" />
+    <Compile Include="Db\Repositories\STAFF_UNIT_Repository.cs" />
+    <Compile Include="Db\Repositories\UCA_LIST_Repository.cs" />
+    <Compile Include="Db\Repositories\USER_ROOM_Repository.cs" />
+    <Compile Include="Db\Requested.cs" />
+    <Compile Include="Db\Services\Addon_Service.cs" />
+    <Compile Include="Db\Services\ARM_DEVICE_Service.cs" />
+    <Compile Include="Db\Services\STAFF_Service.cs" />
+    <Compile Include="Db\Services\__Common_Service.cs" />
+    <Compile Include="Db\Services\DOC_Service.cs" />
+    <Compile Include="Db\Services\EMPLOYEE_Service.cs" />
+    <Compile Include="Db\Services\REQUEST_Service.cs" />
+    <Compile Include="Db\Services\RESOURCE_Service.cs" />
+    <Compile Include="Db\Services\DIC_Service.cs" />
+    <Compile Include="Db\Services\Коммитнуть.cs" />
+    <Compile Include="Db\Services\Обновить.cs" />
+    <Compile Include="Db\Services\Создать.cs" />
+    <Compile Include="Db\Services\Удалить.cs" />
+    <Compile Include="Db\Validation\ValidateExtensions.cs" />
+    <Compile Include="Db\Validation\Validator.cs" />
+    <Compile Include="Db\QWERTY_Context.cs" />
+    <Compile Include="Db\_EntityBase.cs" />
+    <Compile Include="Db\__Шаблоны\Repositories\VIEW_MEMBER_ORG__Repository.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VIEW_MEMBER_ORG__Repository.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Запросы\запрос.cs" />
+    <Compile Include="Db\Компараторы\VIEW_REPORT_ALL_RESOURCES__comparer.cs" />
+    <Compile Include="Doc\Document.cs" />
+    <Compile Include="Doc\DocPaths.cs" />
+    <Compile Include="Doc\Документы.cs" />
+    <Compile Include="Doc\Создать Документ Заявка на создание защищаемого ресурса ЗЛИВС.cs" />
+    <Compile Include="Enums\Query_mode.cs" />
+    <Compile Include="Enums\Annotation.cs" />
+    <Compile Include="Enums\Права объектов ресурса.cs" />
+    <Compile Include="Enums\Словарь.cs" />
+    <Compile Include="Enums\Статусы заявок.cs" />
+    <Compile Include="Enums\Типы Документов.cs" />
+    <Compile Include="Enums\Типы Заявок.cs" />
+    <Compile Include="Extensions\Comparer.cs" />
+    <Compile Include="Extensions\Entity\EMPLOYEE_Extension.cs" />
+    <Compile Include="Extensions\Entity\RESOURCE_Extension.cs" />
+    <Compile Include="Extensions\For Tests\Entity.cs" />
+    <Compile Include="Extensions\For Tests\EntityDataGenerator.cs" />
+    <Compile Include="Extensions\ModelExtensions.cs" />
+    <Compile Include="Helpers\DateTimeHelper.cs" />
+    <Compile Include="Helpers\JsonHelper.cs" />
+    <Compile Include="Helpers\LinqHelpers.cs" />
+    <Compile Include="Log\Logger.cs" />
+    <Compile Include="Models\JsonModel.cs" />
+    <Compile Include="Models\RequestParams.cs" />
+    <Compile Include="Models\_Создатель\Сервис_Добавить_Субъектов_К_Ресурсу_ЗЛИВС (RESOURCE_MEMBERS).cs" />
+    <Compile Include="Models\_Создатель\Сервис_Заявка (REQUEST).cs" />
+    <Compile Include="Models\_Создатель\Сервис_Доступ_Субъектам (MEMBER).cs" />
+    <Compile Include="Models\_Создатель\Сервис_Право (RIGHT).cs" />
+    <Compile Include="Models\_Создатель\Сервис_Профиль (PROFILE).cs" />
+    <Compile Include="Models\_Создатель\Сервис_Ресурс (RESOURCE).cs" />
+    <Compile Include="Models\_Создатель\Сервис_ОбъектРесурса (OBJECT).cs" />
+    <Compile Include="Models\_Создатель\Сервис_Пользователь (EMPLOYEE).cs" />
+    <Compile Include="Models\_Создатель\Создатель.cs" />
+    <Compile Include="Models\_Создатель\Сервис_Документ (DOC).cs" />
+    <Compile Include="Models\Валидатор\Валидатор.cs" />
+    <Compile Include="Models\Валидатор\Пользовательская валидация\MyValidation.cs" />
+    <Compile Include="Models\ДанныеИзФормы.cs" />
+    <Compile Include="Models\Заявки\Заявка на предоставление доступа к защищаемым ресурсам\ДанныеИзФормы_ПредоставлениеДоступаСубъектам_модель.cs" />
+    <Compile Include="Models\Заявки\Заявка на предоставление доступа к защищаемым ресурсам\Создать_ПредоставитьДоступСубъектам.cs" />
+    <Compile Include="Models\Заявки\Заявка на создание защищаемого ресурса - ЗЛИВС\RESOURCE_MEMBERS_DOC.cs" />
+    <Compile Include="Models\Заявки\Заявка на создание защищаемого ресурса - ЗЛИВС\Документ_СозданиеЗащищаемогоРесурсаЗЛИВС_модель.cs" />
+    <Compile Include="Models\Заявки\Заявка на создание защищаемого ресурса - ЗЛИВС\ДанныеИзФормы_СозданиеЗащищаемогоРесурсаЗЛИВС_модель.cs" />
+    <Compile Include="Models\Заявки\Заявка на создание защищаемого ресурса - ЗЛИВС\СозданиеЗащищаемогоРесурсаЗЛИВС.cs" />
+    <Compile Include="Models\Заявки\Заявка на создание защищаемого ресурса\ДанныеИзФормы_СозданиеЗащищаемогоРесурса_модель.cs" />
+    <Compile Include="Models\Заявки\Заявка на создание защищаемого ресурса\СозданиеЗащищаемогоРесурса.cs" />
+    <Compile Include="Models\Заявки\Заявка на создание профиля доступа на ресурс\ProfileObject.cs" />
+    <Compile Include="Models\Заявки\Заявка на создание профиля доступа на ресурс\Создание профиля доступа на защищаемый ресурс.cs" />
+    <Compile Include="Models\Заявки\Заявка на создание профиля доступа на ресурс\ДанныеИзФормы_СозданиеПрофиляДоступа_модель.cs" />
+    <Compile Include="Models\ПереченьСубъектовДоступа.cs" />
+    <Compile Include="Models\ПолучитьСодержимоеЗаявкиМодель.cs" />
+    <Compile Include="Models\Сущности\Логин (LOGIN)\ДанныеИзФормы_СозданияЛогина_модель.cs" />
+    <Compile Include="Models\Сущности\Пользователь (EMPLOYEE)\ДанныеИзФормы_СозданияПользователя_модель.cs" />
+    <Compile Include="Models\Сущности\ФИО (FIO)\ДанныеИзФормы_ОбновленияФИО_модель.cs" />
+    <Compile Include="Models\Сущности\ФИО (FIO)\ДанныеИзФормы_СозданияФИО_модель.cs" />
+    <Compile Include="Models\Сущности\ФИО (FIO)\ДанныеИзФормы_УдаленияФИО_модель.cs" />
+    <Compile Include="Models\Сущности\ФИО (FIO)\Обновить_ФИО.cs" />
+    <Compile Include="Models\ЧекнутьДанные.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Атрибуты\DataTableColumnAttribute.cs" />
+    <Compile Include="Атрибуты\ViewItemAttribute.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Db\__Шаблоны\Configuration\VIEW_MEMBER_ORG__Configuration.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>VIEW_MEMBER_ORG__Configuration.cs</LastGenOutput>
+    </Content>
+    <Content Include="Db\__Шаблоны\constants.ttinclude">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>constants - Представления.cs</LastGenOutput>
+    </Content>
+    <Content Include="Db\__Шаблоны\Entities\VIEW_MEMBER_ORG.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>VIEW_MEMBER_ORG.cs</LastGenOutput>
+    </Content>
+    <Content Include="Db\__Шаблоны\Repositories\VIEW_MEMBER_ORG__Repository.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>VIEW_MEMBER_ORG__Repository.cs</LastGenOutput>
+    </Content>
+    <Content Include="Db\__Шаблоны\Services\Services.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Services.cs</LastGenOutput>
+    </Content>
+    <Content Include="Db\__Шаблоны\что еще надо сделать.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\Сущности" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

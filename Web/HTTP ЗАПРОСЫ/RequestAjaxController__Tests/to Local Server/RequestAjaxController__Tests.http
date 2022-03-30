@@ -1,0 +1,247 @@
+﻿### Тесты
+
+### Создать_ФИО
+### Валидный запрос
+
+### Создание заявки на удаление ФИО (валидная)
+POST http://localhost:1689/RequestAjax/DeleteFioRequest
+Content-Type: application/json
+
+{
+  "id": 1481,
+  "request_params":
+  {
+    "create_date_time": null,
+    "end_date_time": null,
+    "sender_login": "kirillovanm",
+    "recipient_login": null,
+    "request_state_id": 1,
+    "doc": null,
+    "reg_number": null
+  }
+}
+
+> DeleteFioRequest_Return_200.js
+
+### Создание заявки на удаление ФИО (не валидная)
+POST http://localhost:1689/RequestAjax/DeleteFioRequest
+Content-Type: application/json
+
+{
+  "id": 14810,
+  "request_params":
+  {
+    "create_date_time": null,
+    "end_date_time": null,
+    "sender_login": "kirillovanm",
+    "recipient_login": null,
+    "request_state_id": 1,
+    "doc": null,
+    "reg_number": null
+  }
+}
+
+> DeleteFioRequest__Not_Valid.js
+
+### Запрос на создание ФИО (валидный)
+POST http://localhost:1689/RequestAjax/CreateFio
+Content-Type: application/json
+
+{
+  "family": "Барабукаw",
+  "name": "Сергецd",
+  "patronymic": "Гирасимычd",
+  "id_user": "1529",
+  "request_params":
+  {
+    "create_date_time": null,
+    "end_date_time": null,
+    "sender_login": "kirillovanm",
+    "recipient_login": null,
+    "request_state_id": 1,
+    "doc": null,
+    "reg_number": null
+  }
+}
+
+> {%
+client.test("Request executed successfully", function() {
+    var result = response.body.result
+    var model = response.body.model
+
+    // client.assert(условие как должно быть, текст если условие не выполнено);
+    client.assert(response.status === 200, "Response status: " + response.status.toString())
+
+    client.assert(result.code === 200, result.msg)
+
+    client.assert(result.msg !== null
+        && result.msg !== undefined
+        && result.msg.length > 0, "Некорректное сообщение. Это сообщение?")
+
+    if (result.code === 500) {
+        client.assert(model === null, "Модель должна быть нулл")
+    }
+
+    if (result.code === 200) {
+        client.assert(model !== null
+          && model != undefined, "Модель не может быть нулл")
+
+        client.assert(model.requestId > 0, "model.requestId должен быть > 0")
+        client.assert(model.fioId > 0, "model.fioId должен быть > 0")
+    }
+});
+%}
+
+### Запрос на создание ФИО (Не валидный)
+
+POST http://localhost:1689/RequestAjax/CreateFio
+Content-Type: application/json
+
+{
+  "family": "Барабука",
+  "name": "Сергецыs",
+  "patronymic": "Гирасимыч",
+  "id_user": "1529",
+  "request_params":
+  {
+    "create_date_time": null,
+    "end_date_time": null,
+    "sender_login": "kirillovanm",
+    "recipient_login": null,
+    "request_state_id": 1,
+    "doc": null,
+    "reg_number": null
+  }
+}
+
+> {%
+client.test("Request executed successfully", function() {
+    var result = response.body.result;
+    var model = response.body.model;
+
+    // запрос должен быть выполнен и результат должен быть возвращен
+    client.assert(response.status === 200, "Response status: " + response.status.toString())
+
+    // тест должен всегда возвращать код 500
+    client.assert(result.code === 500, "Код результата должен быть 500, а пришел код=" + result.code + "\r\n" + result.msg)
+
+    // сообщение всегда должно быть
+    client.assert(result.msg !== null
+        && result.msg !== undefined
+        && result.msg.length > 0, "Сообщение должно быть")
+
+    // модели не должно быть
+    client.assert(model === null, "Модель должна быть нулл")
+});
+%}
+###
+
+### Заявка на создание ресурса (валидная)
+
+POST http://localhost:1689/RequestAjax/CreateResource
+Content-Type: application/json
+
+{
+  "ParentObjectId": null,
+  "NewId": null,
+  "path": null,
+  "description": null,
+  "ObjectTypeId": 1,
+  "FragmentId": 1,
+  "ServiceTypeId": 1,
+  "ObjectName": "A#SW$XE%CVsdy80fhs70fh0sd7YM",
+  "SecretTypeId": 1,
+  "ResponsibleId": 2,
+  "OwnerId": 2,
+  "request_params":
+  {
+    "create_date_time": null,
+    "end_date_time": null,
+    "sender_login": "kirillovanm",
+    "recipient_login": null,
+    "request_state_id": 1,
+    "doc": null,
+    "reg_number": null
+  }
+}
+
+> CreateResource_Valid.js
+
+### Получить Сущность По Номеру Заявки и Типу Заявки (не валидная)
+
+GET http://localhost:1689/RequestAjax/GetEntityByRequest
+Accept: application/json
+Content-Type: application/json
+
+{
+  "idRequest" : 27861,
+  "requestTypeCode": "CROBJECTRES"
+}
+
+> GetEntityByRequest__Not_Valid.js
+
+
+### Добавить объекты в профиль (ресурс - каталог)
+
+POST http://localhost:1689/RequestAjax/AddProfileObjects
+Content-Type: application/json
+
+{
+  "ProfileName": "lasdhfljh",
+  "ResourceObjectId": 1206,
+  "ProfileObjects" : [
+    {    "ObjectName": "sdjkfakh1",    "ObjectTypeId": 7,    "RightDescriptions": [23, 24, 36]    },
+    {    "ObjectName": "sdjkfakh2",    "ObjectTypeId": 7,    "RightDescriptions": [23, 36]    }
+  ],
+  "request_params":{"create_date_time":null,"end_date_time":null,"sender_login":"kirillovanm","recipient_login":null,"request_state_id":null,"doc":null,"reg_number":null}
+}
+
+###
+POST http://localhost:1689/RequestAjax/AddProfileObjects
+Content-Type: application/json
+
+{
+  "ProfileName":"ipudfpioasdщрва111",
+  "ResourceObjectId":3000,
+  "ProfileObjects":
+  [
+    {
+      "ObjectName":"dfgdsg1121",
+      "ObjectTypeId":1,
+      "ObjectTypeName":"Представление",
+      "RightDescriptions":[28,27,30,31]
+    },
+    {
+      "ObjectName":"dfgdsg12111",
+      "ObjectTypeId":1,
+      "ObjectTypeName":"Представление",
+      "RightDescriptions":[28,27,30,31]
+    },
+    {
+      "ObjectName":"dfgdsg31311",
+      "ObjectTypeId":1,
+      "ObjectTypeName":"Представление",
+      "RightDescriptions":[28,27,30,31]
+    }
+  ],
+  "request_params":
+  {
+    "create_date_time":null,
+    "end_date_time":null,
+    "sender_login":"kirillovanm",
+    "recipient_login":null,
+    "request_state_id":null,
+    "doc":null,
+    "reg_number":null
+  }
+}
+
+###
+POST http://localhost:1689/RequestAjax/RollBackRequest
+Content-Type: application/json
+
+{
+"idRequest": 27868
+}
+
+###

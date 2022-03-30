@@ -1,0 +1,34 @@
+﻿<#@ template language="C#" #>
+<#@ output encoding="utf-8" extension=".cs" #>
+<#@ include file="../constants.ttinclude" #>
+/* ---------------------------------------------------------------------------------------------------
+*    ЭТО АВТОМАТИЧЕСКИ ГЕНЕРИРУЕМЫЙ ФАЙЛ
+*    НЕ РЕДАКТИРУЙТЕ ЕГО - ВСЕ ИЗМЕНЕНИЯ БУДУТ УДАЛЕНЫ
+*
+*    РЕЗУЛЬТАТ СОХРАНИТЬ ЗДЕСЬ: <#= $"{configurationFullPathName}" #>
+* ---------------------------------------------------------------------------------------------------*/
+using System.Data.Entity.ModelConfiguration;
+using QWERTY.Shared.Db.Entities;
+using QWERTY.Shared.Db.Entities.<#= $"{subNamespace}" #>;
+
+namespace QWERTY.Shared.Db.Configuration.<#= $"{subNamespace}" #>
+{
+    public class <#= entityClassName #>_Configuration : EntityTypeConfiguration<<#= entityClassName #>>
+    {
+        public <#= entityClassName #>_Configuration()
+        {
+            ToTable(ИмяТаблицы.<#= $"{tableName}" #>, _EntityBase.SchemaName);
+
+            HasKey(e => new {e.<#=t[0][1]#>});
+
+<#
+   for (int i = 0; i < t.Length; i++)
+   {
+#>
+            Property(e => e.<#=t[i][1]#>).HasColumnName(ИмяКолонки.<#=t[i][2]#>).<#=t[i][3]#>();
+<#
+   } 
+#>
+        }
+    }
+}

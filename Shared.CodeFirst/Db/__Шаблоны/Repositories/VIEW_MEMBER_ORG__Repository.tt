@@ -1,0 +1,32 @@
+﻿<#@ template language="C#" #>
+<#@ output encoding="utf-8" extension=".cs" #>
+<#@ include file="../constants.ttinclude" #>
+/*
+*    ЭТО АВТОМАТИЧЕСКИ ГЕНЕРИРУЕМЫЙ ФАЙЛ
+*    НЕ РЕДАКТИРУЙТЕ ЕГО - ВСЕ ИЗМЕНЕНИЯ БУДУТ УДАЛЕНЫ
+*
+*    РЕЗУЛЬТАТ СОХРАНИТЬ ЗДЕСЬ: <#= $"{repositoryFullPathName}" #>
+*/
+
+// @LABEL:Repositories@
+
+using QWERTY.Shared.Db.Entities.<#= $"{subNamespace}" #>;
+using QWERTY.Shared.Db.Infrastructure;
+
+namespace QWERTY.Shared.Db.Repositories
+{
+    public interface I<#= $"{entityClassName}"#>_Repository : IRepository<<#= $"{entityClassName}"#>>
+    {
+
+    }
+
+    public class <#= $"{entityClassName}"#>_Repository : RepositoryBase<<#= $"{entityClassName}"#>>, I<#= $"{entityClassName}"#>_Repository
+    {
+        public <#= $"{entityClassName}"#>_Repository(IDbFactory dbFactory) : base(dbFactory)
+        {
+
+        }
+    }
+}
+
+

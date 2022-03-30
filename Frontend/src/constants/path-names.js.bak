@@ -1,0 +1,7 @@
+export const RSD = 'RSD'
+export const AllResourcesWithMembers = 'AllResourcesWithMembers'
+export const AllArms = 'AllArms'
+export const AllArmUsers = 'AllArmUsers'
+export const AllResources = 'AllResources'
+export const AcAccess = 'AcAccess'
+@LABEL:CONSTANTS-PATH-NAMES@

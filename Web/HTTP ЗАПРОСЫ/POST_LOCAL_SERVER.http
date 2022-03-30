@@ -1,0 +1,11 @@
+###
+POST http://localhost:1689/RequestAjax/UpdateFIO
+Content-Type: application/json
+
+{
+  "id": 1234567890,
+  "family": "Барабука",
+  "name": "Сергец",
+  "patronymic": "Гирасимыч"
+}
+###

@@ -1,0 +1,8 @@
+еще надо: 
+
+- раскидать руками Configuration, Entities, Repositories
+- добавить модель в DbModelBuilder.cs
+- добавить дбсет в DbSets.cs
+- добавить интерфейс репозитория в __Common_Service.cs
+- грохнуть сгенерированные файлы Configuration, Entities, Repositories
+- если необходимо поправить Создать.cs, Коммитнуть.cs, Обновить.cs, Удалить.cs
